@@ -14,6 +14,7 @@ client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
  #   run_chat()
   #File "/home/meet/Documents/GitHub/Y2-Summer26-Indivdual/agent/app.py", line 56, in run_chat
    # response = client.messages.create(
+   #like the way i teleport back to my dorm as soon as complementry is over info teleports from my promt to claude centers
 
 def run_chat():
     print('You: (type exit to quit)')
@@ -58,6 +59,9 @@ Response format:
 
         history.append({'role': 'user', 'content': user_input})
         print('History:', history)
+        #i will remove append history part and i perdict claude won't see or process what I typed.
+        #it didnt reply to what i said so safe to assume it didnt get my message 
+
         #i see in the history how iy constructs messages and where it putss a gap orrr **these things** to make the text bold, also roles: {'role': 'assistant', 'content': "
         response = client.messages.create(
             model='claude-haiku-4-5-20251001',
@@ -68,6 +72,7 @@ Response format:
         )
         #i think temp controls the length of the message?
         #im not sure i set token to 50 and temp t 0.1 and it looked like it cut the message short
+        #tokens are like calories, sure one cupcake wont hurt BUUUT over time the more cupcakes you eat the more calories rack up
 
 
         reply = response.content[0].text
