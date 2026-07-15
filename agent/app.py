@@ -1,10 +1,19 @@
 import os
 from anthropic import Anthropic
 from dotenv import load_dotenv
-
+#im gonna assumme that the most important variables are the imports??
 load_dotenv()
 
 client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+#the client is claude, it conects to the claude servers to genrate the message
+#this is also an external connector (to the data center)
+#ill try to remove this and see what happens, im guessing it will print "you:" then when i type a message it will not work
+#History: [{'role': 'user', 'content': 'kazuha?'}]
+#Traceback (most recent call last):
+#  File "/home/meet/Documents/GitHub/Y2-Summer26-Indivdual/agent/app.py", line 70, in <module>
+ #   run_chat()
+  #File "/home/meet/Documents/GitHub/Y2-Summer26-Indivdual/agent/app.py", line 56, in run_chat
+   # response = client.messages.create(
 
 def run_chat():
     print('You: (type exit to quit)')
@@ -36,7 +45,9 @@ Response format:
 - Start with a one-sentence summary of what the user said.
 - Then give your response. (stay true to ur rule refering to ur job)
 - End with one follow-up question.
+-also emoticons are super cute so make sure to use them, and the non face ones to, make the message aesthetic and CUTE
 """
+#well uhh i added this feature cuz kazuha is peak??? :,)
     history = []
 
     while True:
